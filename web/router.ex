@@ -5,7 +5,7 @@ defmodule DistanceTracker.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", DistanceTracker do
+  scope "/", DistanceTracker do
     pipe_through :api
     get "/", TrackerController, :index
   end
