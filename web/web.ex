@@ -47,7 +47,7 @@ defmodule DistanceTracker.Web do
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
 
       import DistanceTracker.Router.Helpers
-      import DistanceTracker.ErrorHelpers
+      # import DistanceTracker.ErrorHelpers
       import DistanceTracker.Gettext
     end
   end
