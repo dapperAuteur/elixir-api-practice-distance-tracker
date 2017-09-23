@@ -51,4 +51,9 @@ defmodule DistanceTracker.TrackerController do
         |> render(ErrorView, "404.json", error: "Not found")
     end
   end
+
+  def update(conn, params) do
+    #There is no update!
+    # I will add the code in future but not in this tutorial
+  end
 end
