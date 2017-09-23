@@ -57,4 +57,12 @@ defmodule DistanceTracker.TrackerControllerTest do
       "uuid" => tracker_a.uuid
     } == data
   end
+
+  test "Tracker not found returns a 404" do
+    %{resp_body: body, status: status} = conn
+      |> get(tracker_path(conn, :show, UUID.uuid4()))
+
+    assert 404 == status
+    assert %{"error" =>"Page not found"} == Poison.decode!(body)
+  end
 end
