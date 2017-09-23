@@ -61,9 +61,9 @@ defmodule DistanceTracker.TrackerController do
       |> Conn.put_status(204)
       |> render(conn, "show.json", tracker: tracker)
     else
-      nil ->
+      {:error, %{errors: errors}} ->
         conn
-        |> put_status(404)
+        |> put_status(422)
         |> render(ErrorView, "422.json", %{errors: errors})
     end
   end
