@@ -5,6 +5,10 @@ defmodule DistanceTracker.ErrorView do
     %{errors: %{detail: "Page not found"}}
   end
 
+  def render("422.json", _assigns) do
+    %{errors: %{detail: "Bad request"}}
+  end
+
   def render("500.json", _assigns) do
     %{errors: %{detail: "Internal server error"}}
   end
