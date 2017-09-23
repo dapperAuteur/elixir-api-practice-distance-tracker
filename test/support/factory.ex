@@ -16,6 +16,18 @@ defmodule DistanceTracker.Factory do
   tracker = insert(DistanceTracker.Tracker, activity: "sky-diving")
   """
   @spec create(module, Enum.t) :: map
+  def create(schema, attributes) do
+    schema
+    |> create()
+    |> struct(attributes)
+  end
+
+  @doc """
+  Inserts a new instance of the given Ecto schema module into the Repo
+  ## Examples
+  tracker = insert(DistanceTracker.Tracker, activity: "sky-diving")
+  """
+  @spec insert(module, Enum.t) :: map
   def insert(schema, attributes \\ []) do
     DistanceTracker.Repo.insert! create(schema, attributes)
   end
