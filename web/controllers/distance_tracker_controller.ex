@@ -1,7 +1,8 @@
 defmodule DistanceTracker.TrackerController do
   use DistanceTracker.Web, :controller
 
-  alias DistanceTracker.{Repo, Tracker}
+  alias DistanceTracker.{ErrorView, Repo, Tracker}
+  alias Plug.Conn
 
   def index(conn, _params) do
     trackers = Repo.all(Tracker)
