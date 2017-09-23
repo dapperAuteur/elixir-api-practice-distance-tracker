@@ -8,5 +8,9 @@ defmodule DistanceTracker.Router do
   scope "/", DistanceTracker do
     pipe_through :api
     get "/", TrackerController, :index
+    get "/:id", TrackerController, :show
+    post "/", TrackerController, :create
+    delete "/:id", TrackerController, :delete
+    patch "/:id", TrackerController, :update
   end
 end
