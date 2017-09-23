@@ -52,8 +52,19 @@ defmodule DistanceTracker.TrackerController do
     end
   end
 
-  def update(conn, params) do
+  def update(conn, %{"id" => uuid}) do
     #There is no update!
     # I will add the code in future but not in this tutorial
+    with tracker = %Tracker{} <- Repo.get(Tracker, uuid) do
+      Repo.update!(tracker)
+      conn
+      |> Conn.put_status(204)
+      |> render(conn, "show.json", tracker: tracker)
+    else
+      nil ->
+        conn
+        |> put_status(404)
+        |> render(ErrorView, "422.json", %{errors: errors})
+    end
   end
 end
